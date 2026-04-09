@@ -146,7 +146,8 @@ public class MainActivity extends AppCompatActivity {
 
         InterstitialAd.load(
                 this,
-                "ca-app-pub-xxxxxxxxxxxx/xxxxxxxxx", // ID IKLAN interstitial
+                "ca-app-pub-3940256099942544/1033173712", // test id INTERSTITIAL
+
                 adRequest,
                 new InterstitialAdLoadCallback() {
                     @Override
@@ -192,7 +193,8 @@ public class MainActivity extends AppCompatActivity {
 
         AppOpenAd.load(
                 this,
-                "ca-app-pub-xxxxxxxxxxxx/xxxxxxxxx", //ID IKLAN pertama buka aplikasi
+                "ca-app-pub-3940256099942544/9257395921", //test id APP OPEN ADS
+
                 request,
                 AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT,
                 new AppOpenAd.AppOpenAdLoadCallback() {
