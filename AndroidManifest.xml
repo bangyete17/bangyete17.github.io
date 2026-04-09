@@ -23,7 +23,7 @@
         <!-- 🔥 KODE ID APLIKASI IKLAN (BUKAN KODE UNIT IKLAN) -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-xxxxxxxxxxxx~xxxxxxxxxx"/>
+            android:value="ca-app-pub-1655677702790501~9885886078"/>
 
         <!-- MAIN ACTIVITY -->
         <activity
