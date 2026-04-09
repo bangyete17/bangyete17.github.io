@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>HRPAY - Kalkulator HRD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HRD Payment Tool Payroll & Severance Calculator">
+<link rel="stylesheet" href="kodecss.css">
+</head>
+<body>
+<div class="app">
+<div id="overlay" onclick="closeMenu()"></div>
+    
+<div class="popup" id="popup">
+<div class="popup-box">
+<div class="popup-title">Hasil Perhitungan</div>
+<div id="popupContent"></div>
+<div class="popup-buttons">
+<button onclick="copyResult()">Copy</button>
+<button onclick="closePopup()">Close</button>
+</div>
+</div>
+</div>
+
+<header id="header">
+<div class="hamburger" onclick="openMenu()">☰ HRPAY</div>
+<div id="title"></div>
+<div class="versionapp" data-type="badge">Kalkulator HRD</div>
+</header>
+
+<nav id="wrapernav">
+<div class="listnav">
+<button onclick="showPage('page-payroll')">Payroll</button>
+<button onclick="showPage('page-severance')">Severance</button>
+<button onclick="showPage('page-archive')">Archive</button>
+<hr>
+<button onclick="showPage('page-knowledge')">knowledge</button>
+<button onclick="showPage('page-about')">About</button>
+</div>
+
+<div class="posternav">
+</div>
+
+<div class="footernav">
+<span>© Developed by</span>
+<strong>Yadin XD & Ramona Sari Sibarani, S.Pd., M.M.</strong>
+</div>
+</nav>
+
+<div id="content">
+    
+<div id="page-home" class="page active" data-title="">       
+<div class="home-intro">
+<p class="cta">Selamat Datang di</p>
+<h2>HRPAY</h2>
+<div class="templatepage">
+<p class="desc">
+HRPAY kalkulator HRD hadir sebagai solusi profesional untuk membantu menghitung 
+</p>
+<ul>
+<li>Perhitungan Payroll (THP)</li>
+<li>Perhitungan Cost to Company (CTC)</li>
+<li>Perhitungan Severance (Pesangon)</li>
+</ul>
+<p class="desc">
+Seluruh perhitungan telah disesuaikan dengan regulasi resmi seperti 
+UU Ketenagakerjaan, BPJS, PPh 21, Peraturan Dirjen Pajak & Permenaker terkait.
+</p>
+<p class="cta">
+Mulai hitung payroll dengan lebih mudah sekarang.
+</p>
+</div>
+<div class="tombolskip">
+<button onclick="showPage('page-payroll')">start</button>
+</div>
+</div>
+</div>
+
+<div id="page-payroll" class="page" data-title="Payroll">
+<div class="form-1">
+<label for="nama">Nama Karyawan</label>
+<input type="text" id="nama" placeholder="contoh: Mona">
+</div>
+<div class="form-1">
+<label for="gapok">Gaji Pokok</label>
+<input type="text" id="gapok" placeholder="contoh: 7.000.000,-" oninput="fmt(this)">
+</div>
+<div class="form-1">
+<label for="tunjangan">Tunjangan Tetap</label>
+<input type="text" id="tunjangan" placeholder="contoh: 1.500.000,-" oninput="fmt(this)">
+</div>
+<div class="form-1">
+<label for="bonus">Bonus</label>
+<input type="text" id="bonus" placeholder="contoh: 300.000,-" oninput="fmt(this)">
+</div>
+
+<div class="kotakptkpnpwp">
+<div class="ptkpkiri">
+<label for="ptkpStatus">🔵 PTKP</label>
+<select id="ptkpStatus">
+<option value="TK0">TK0 (Tidak Kawin, 0 anak)</option>
+<option value="TK1">TK1 (Tidak Kawin, 1 anak)</option>
+<option value="TK2">TK2 (Tidak Kawin, 2 anak)</option>
+<option value="TK3">TK3 (Tidak Kawin, 3 anak)</option>
+<option value="K0">K0 (Kawin, 0 anak, Istri tidak bekerja)</option>
+<option value="K1">K1 (Kawin, 1 anak, Istri tidak bekerja)</option>
+<option value="K2">K2 (Kawin, 2 anak, Istri tidak bekerja)</option>
+<option value="K3">K3 (Kawin, 3 anak, Istri tidak bekerja)</option>
+<option value="KI0">KI0 (Kawin, 0 anak, Istri bekerja)</option>
+<option value="KI1">KI1 (Kawin, 1 anak, Istri bekerja)</option>
+<option value="KI2">KI2 (Kawin, 2 anak, Istri bekerja)</option>
+<option value="KI3">KI3 (Kawin, 3 anak, Istri bekerja)</option>
+</select>
+</div>
+<div class="npwpkanan">
+<label for="npwp">🔵 NPWP</label>
+<select id="npwp">
+<option value="1">Ada NPWP</option>
+<option value="1.2">Tidak Ada NPWP (+20%)</option>
+</select>
+</div>
+</div>
+<div class="notebpjs">Input BPJS Sudah Sesuai Peraturan Pemerintah</div>
+<div class="form-asuransi">
+<label for="asuransiPT">Asuransi (Hanya Untuk Cost To Company)</label>
+<input type="number" id="asuransiPT" placeholder="0 %" min="0" step="0.01">
+</div>
+<div class="kotakbpjs">
+<div class="form-bpjs">
+<label for="kespt">BPJS KES Perusahaan</label>
+<div class="input-percent">
+<input type="number" id="kespt" value="4" min="0" max="100" step="0.1">
+<span class="percent">%</span>
+</div>
+<input type="text" id="maxkespt" value="12000000" oninput="fmt(this)">
+</div>
+<div class="form-bpjs">
+<label for="jhtpt">BPJS JHT Perusahaan</label>
+<div class="input-percent">
+<input type="number" id="jhtpt" value="3.7" min="0" max="100" step="0.1">
+<span class="percent">%</span>
+</div>
+<input type="text" id="maxjhtpt" placeholder="Max Gaji" oninput="fmt(this)">
+</div>
+<div class="form-bpjs">
+<label for="jppt">BPJS JP Perusahaan</label>
+<div class="input-percent">
+<input type="number" id="jppt" value="2" min="0" max="100" step="0.1">
+<span class="percent">%</span>
+</div>
+<input type="text" id="maxjppt" value="11086300" oninput="fmt(this)">
+</div>
+</div>
+<div class="kotakbpjs">
+<div class="form-bpjs">
+<label for="kes">BPJS KES Karyawan</label>
+<div class="input-percent">
+<input type="number" id="kes" value="1" min="0" max="100" step="0.1">
+<span class="percent">%</span>
+</div>
+<input type="text" id="maxkes" value="12000000" oninput="fmt(this)">
+</div>
+<div class="form-bpjs">
+<label for="jht">BPJS JHT Karyawan</label>
+<div class="input-percent">
+<input type="number" id="jht" value="2" min="0" max="100" step="0.1">
+<span class="percent">%</span>
+</div>
+<input type="text" id="maxjht" placeholder="Max Gaji" oninput="fmt(this)">
+</div>
+<div class="form-bpjs">
+<label for="jp">BPJS JP Karyawan</label>
+<div class="input-percent">
+<input type="number" id="jp" value="1" min="0" max="100" step="0.1">
+<span class="percent">%</span>
+</div>
+<input type="text" id="maxjp" value="11086300" oninput="fmt(this)">
+</div>
+</div>
+
+<div class="reset-wrapper">
+<button onclick="resetAll()">Reset Default</button>
+</div>
+
+<div class="button-hitungTHPCTC">
+<button type="button" onclick="calcPayrollTHP()">Calc THP (Karyawan)</button>
+<button type="button" onclick="calcPayrollCTC()">Calc CTC (Perusahaan)</button>
+</div>
+<!-- HTML -->
+<div class="spasi-kosong"></div>
+</div>
+
+<div id="page-severance" class="page" data-title="Severance">
+<div class="form-1">
+<label for="sevNama">Nama Karyawan</label>
+<input type="text" id="sevNama" placeholder="contoh: Mona">
+</div>
+<div class="form-1">
+<label for="sevUpah">Upah Terakhir</label>
+<input type="text" id="sevUpah" placeholder="contoh: 7.000.000,-" oninput="fmt(this)">
+</div>
+<div class="form-1">
+<label for="sevMasuk">Mulai Kerja</label>
+<input type="date" id="sevMasuk">
+</div>
+<div class="form-1">
+<label for="sevKeluar">Akhir Kerja</label>
+<input type="date" id="sevKeluar">
+</div>
+<div class="form-1">
+<label for="sevAlasan">Alasan PHK</label>
+<select id="sevAlasan">
+<option value="efisiensi">Efisiensi / Perampingan</option>
+<option value="merger">Merger / Akuisisi</option>
+<option value="pailit">Perusahaan Pailit</option>
+<option value="tutup_rugi">Perusahaan Tutup Karena Rugi</option>
+<option value="force">Force Majeure</option>
+<option value="mangkir">Mangkir</option>
+<option value="pelanggaran">Pelanggaran Berat</option>
+<option value="sakit">Sakit Berkepanjangan</option>
+<option value="pensiun">Pensiun</option>
+<option value="meninggal">Meninggal Dunia</option>
+<option value="resign">Mengundurkan Diri</option>
+<option value="kontrak_habis">Kontrak habis (PKWT)</option>
+</select>
+</div>
+<div class="form-1">
+<label for="sevHariKerja">Aturan Kerja</label>
+<select id="sevHariKerja">
+<option value="5">5 Hari Dalam Seminggu</option>
+<option value="6" selected>6 Hari Dalam Seminggu</option>
+</select>
+</div>
+<div class="form-1">
+<label for="sevCuti">Sisa Cuti</label>
+<input type="number" id="sevCuti" placeholder="Hari" min="0" max="100">
+</div>
+ <div class="notefaktor">Input Faktor PHK Sudah Sesuai Peraturan Pemerintah</div>         
+<div class="kotakfaktor">
+ <div class="setingsphk">           
+<div>  
+<label>efisiensi:</label>
+<input type="number" id="efisiensi" value="0.5" step="0.05" oninput="updateFaktor('efisiensi', this.value)">
+</div>         
+<div>
+<label>merger:</label>
+<input type="number" id="merger" value="0.5" step="0.05" oninput="updateFaktor('merger', this.value)">
+</div>        
+<div>
+<label>pailit:</label>
+<input type="number" id="pailit" value="0.5" step="0.05" oninput="updateFaktor('pailit', this.value)">
+</div>         
+<div>
+<label>tutup_rugi:</label>
+<input type="number" id="tutup_rugi" value="0.5" step="0.05" oninput="updateFaktor('tutup_rugi', this.value)">
+</div>          
+<div>
+<label>force:</label>
+<input type="number" id="force" value="0.5" step="0.05" oninput="updateFaktor('force', this.value)">
+</div>
+ <div>
+<label>sakit:</label>
+<input type="number" id="sakit" value="2" step="2" oninput="updateFaktor('sakit', this.value)">
+</div> 
+<div>
+<label>pensiun:</label>
+<input type="number" id="pensiun" value="1.75" step="1.75" oninput="updateFaktor('pensiun', this.value)">
+</div>  
+<div>
+<label>meninggal:</label>
+<input type="number" id="meninggal" value="2" step="2" oninput="updateFaktor('meninggal', this.value)">
+</div> 
+<div>
+<label>resign:</label>
+<input type="number" id="resign" value="0" step="0" oninput="updateFaktor('resign', this.value)">
+</div> 
+<div>
+<label>mangkir:</label>
+<input type="number" id="mangkir" value="0" step="0" oninput="updateFaktor('mangkir', this.value)">
+</div> 
+<div>
+<label>pelanggaran:</label>
+<input type="number" id="pelanggaran" value="0" step="0" oninput="updateFaktor('pelanggaran', this.value)">
+</div> 
+<div>
+<label>kontrak_habis:</label>
+<input type="number" id="kontrak_habis" value="0" step="0" oninput="updateFaktor('kontrak_habis', this.value)">
+</div>
+</div>
+</div>
+    
+<div class="reset-wrapper">
+<button onclick="resetAll()">Reset Default</button>
+</div>
+<hr class="garis">
+<div class="button-hitungSEV">
+<button type="button" onclick="calcSeverance()">Calc Severance</button>
+</div>
+<!-- HTML -->
+<div class="spasi-kosong"></div>
+</div>
+
+<div id="page-archive" class="page" data-title="Archive">
+<input type="text" id="archiveSearch" placeholder="Cari nama atau tipe..." oninput="renderArchive()" style="margin-bottom:12px;padding:8px;border-radius:6px;border:1px solid #cfd6df;width:100%;">
+<div id="archiveList"></div>
+</div>
+
+<div id="page-knowledge" class="page" data-title="Knowledge">
+<div class="templatepage">
+<h3>Knowledge Base</h3>
+<h4>📌 Perhitungan Payroll (THP)</h4>
+<p><b>Komponen yang dihitung:</b></p>
+<ul>
+<li>Gaji Pokok</li>
+<li>Tunjangan Tetap</li>
+<li>Bonus / Insentif</li>
+<li>Potongan BPJS (Kesehatan, JHT, JP)</li>
+<li>Pajak PPh 21</li>
+</ul>
+<p><b>Rumus dasar:</b></p>
+<ul>
+<li><b>Penghasilan Bruto</b> = Gaji Pokok + Tunjangan + Bonus</li>
+<li><b>Biaya Jabatan</b> = 5% dari Bruto (maksimal Rp500.000)</li>
+<li><b>Iuran Pensiun</b> = BPJS JHT + BPJS JP</li>
+<li><b>Netto Pajak</b> = Bruto - Biaya Jabatan - Iuran Pensiun</li>
+<li><b>PKP Tahunan</b> = (Netto × 12) - PTKP</li>
+<li><b>PPh 21</b> dihitung progresif sesuai regulasi</li>
+<li><b>Take Home Pay</b> = Bruto - BPJS - PPh 21</li>
+</ul>
+<h4>📌 Perhitungan Cost to Company (CTC)</h4>
+<p>
+CTC adalah total biaya yang dikeluarkan perusahaan untuk satu karyawan,
+tidak hanya gaji yang diterima, tetapi juga seluruh kewajiban perusahaan.
+</p>
+<p><b>Komponen CTC:</b></p>
+<ul>
+<li>Penghasilan Bruto Karyawan</li>
+<li>BPJS Perusahaan (Kesehatan, JHT, JP)</li>
+<li>JKK (Jaminan Kecelakaan Kerja)</li>
+<li>JKM (Jaminan Kematian)</li>
+<li>Asuransi tambahan (opsional)</li>
+</ul>
+<p><b>Rumus dasar:</b></p>
+<ul>
+<li><b>Total Employer Cost</b> = BPJS + JKK + JKM + Asuransi</li>
+<li><b>Total Cash Out</b> = Bruto + Employer Cost</li>
+</ul>
+<p>
+Dengan fitur ini, HR dapat mengetahui <b>biaya real perusahaan</b> untuk setiap karyawan,
+bukan hanya gaji bersih yang diterima.
+</p>
+<h4>📌 Perhitungan Severance (Pesangon)</h4>
+<p><b>Faktor yang digunakan:</b></p>
+<ul>
+<li>Masa kerja (tahun, bulan, hari)</li>
+<li>Upah terakhir</li>
+<li>Alasan PHK</li>
+<li>Sisa cuti</li>
+<li>Hari kerja (5 atau 6 hari)</li>
+</ul>
+<p><b>Komponen severance:</b></p>
+<ul>
+<li>Uang Pesangon</li>
+<li>Uang Penghargaan Masa Kerja (UPMK)</li>
+<li>Penggantian sisa cuti</li>
+</ul>
+<h4>📚 Dasar Hukum</h4>
+<ul>
+<li>UU Ketenagakerjaan</li>
+<li>PP No. 35 Tahun 2021</li>
+<li>UU BPJS</li>
+<li>UU Pajak Penghasilan (PPh 21)</li>
+<li>Peraturan Dirjen Pajak & Permenaker terkait</li>
+</ul>
+<p>
+<b>Catatan:</b>
+Hasil perhitungan merupakan simulasi dan dapat berbeda dengan
+kebijakan internal perusahaan. Gunakan sebagai alat bantu perencanaan dan edukasi.
+</p>
+</div>
+</div>
+
+<div id="page-about" class="page" data-title="About">
+<div class="templatepage">
+<h3>About HRPAY</h3>
+ <p>
+      HRPAY adalah aplikasi kalkulator <b>Payroll, Cost to Company (CTC),</b> dan <b>Severance</b>
+      yang membantu HRD, Admin, dan Karyawan dalam melakukan simulasi perhitungan gaji,
+      biaya perusahaan, dan hak pesangon sesuai regulasi di Indonesia.
+    </p>
+
+    <div class="highlight">
+      Aplikasi ini berjalan <b>100% offline</b> dan tidak memerlukan akun pengguna.
+      Semua data diproses langsung di perangkat Anda.
+    </div>
+
+    <h3>🎯 Tujuan Aplikasi</h3>
+    <ul>
+      <li>Simulasi Take Home Pay (THP)</li>
+      <li>Perhitungan Cost to Company (CTC)</li>
+      <li>Kalkulator pesangon sesuai hukum</li>
+      <li>Edukasi BPJS dan PPh 21</li>
+      <li>Meningkatkan transparansi penggajian</li>
+    </ul>
+
+    <h3>⚙️ Fitur Utama</h3>
+    <ul>
+      <li>Kalkulator Payroll lengkap</li>
+      <li>Perhitungan CTC</li>
+      <li>Kalkulator Severance</li>
+      <li>Penyimpanan riwayat (lokal)</li>
+      <li>Hasil bisa disalin</li>
+      <li>Ringan & cepat</li>
+    </ul>
+
+    <h3>🔒 Kebijakan Privasi</h3>
+    <p>
+      Kami menghargai privasi Anda. HRPAY tidak mengumpulkan, menyimpan,
+      atau membagikan data pribadi ke server mana pun.
+    </p>
+
+    <ul>
+      <li>Data hanya diproses di perangkat pengguna</li>
+      <li>Tidak ada login atau akun</li>
+      <li>Tidak ada tracking atau analitik</li>
+      <li>Data disimpan di localStorage</li>
+    </ul>
+
+    <p>
+      Anda memiliki kendali penuh atas data dan dapat menghapusnya kapan saja.
+    </p>
+
+    <h3>📢 Iklan (AdMob)</h3>
+    <p>
+      Aplikasi ini menggunakan layanan iklan Google AdMob.
+      AdMob dapat mengumpulkan data seperti ID perangkat untuk menampilkan iklan relevan.
+    </p>
+
+    <p>
+      Lihat kebijakan Google:
+      <br>
+      <a href="https://policies.google.com/privacy" target="_blank">
+        https://policies.google.com/privacy
+      </a>
+    </p>
+
+    <h3>⚠️ Disclaimer</h3>
+    <p>
+      Hasil perhitungan merupakan simulasi berdasarkan regulasi seperti:
+      UU Ketenagakerjaan, PP No. 35 Tahun 2021, BPJS, dan PPh 21.
+    </p>
+
+    <p>
+      Hasil dapat berbeda tergantung kebijakan perusahaan dan kondisi tertentu.
+      Gunakan sebagai alat bantu edukasi.
+    </p>
+
+    <h3>🔐 Keamanan</h3>
+    <p>
+      Karena tidak ada penyimpanan server, risiko kebocoran data sangat minimal.
+    </p>
+
+    <h3>🔄 Perubahan Kebijakan</h3>
+    <p>
+      Kebijakan ini dapat diperbarui sewaktu-waktu. Perubahan akan ditampilkan di halaman ini.
+    </p>
+
+    <h3>📧 Kontak</h3>
+    <div class="contact">
+      <p>
+         <a href=" https://bangyete17.github.io/HRPAY/">HRPAY Kalkulator HRD</a><br> 
+         
+        📩 <a href="mailto:bangyete17@gmail.com">Yadin XD</a><br>
+        📩 <a href="mailto:ramonasari.sibarani@gmail.com">Ramona Sari Sibarani</a>
+      </p>
+    </div>
+</div>
+</div>
+
+</div><!-- CONTENT page end-->
+</div><!-- app end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script defer src="kodejs.js"></script>
+</body>
+</html>
