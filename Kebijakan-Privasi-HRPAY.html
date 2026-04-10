@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Title</title>
+<meta charset="UTF-8">
+<title>Developer Portfolio Yadin XD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f7fb;color:#1f2937;display:flex;justify-content:center}
-.btn-home{text-align:center;padding-bottom:50px}
+*{ margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif;}
+body{ background:#f5f7fb; color:#1f2937; display:flex; justify-content:center;}
+.container{ width:100%; max-width:600px; padding:0 16px; border:1px solid #e5e7eb;}
+header{ padding:20px; background:#fff; border:1px solid #e5e7eb; border-radius:12px; margin-bottom:12px;}
+.headerName{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;}
+.headerTitle{ font-size:20px; font-weight:700; color:#1541a1; letter-spacing:0.5px; line-height:1.3;}
+.social{ margin-top:10px; padding:8px; display:flex; justify-content:center; align-items:center; gap:12px; border:1px solid #e5e7eb; border-radius:10px; flex-wrap:wrap;}
+.social a{ text-decoration:none; color:#2563eb; font-size:12px; padding:4px 6px;}
+.social a:hover{ text-decoration:underline;} 
+.headerDesc{ margin-top:5px; font-size:12px; color:#6b7280;}
+.wrapcontentHTML{ text-align:center; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:14px; display:flex; flex-direction:column; gap:50px;}
+.btn-home{text-align:center;}
 .btnhome{padding:1px 100px;background:#e5e7eb;color:#1f2937;text-decoration:none;border-radius:10px;display:inline-block;justify-content:center}
 .btnhome:hover{opacity:.85}
 .btnhome::before{content:"⌂";font-size:30px}
-.article{width:100%;max-width:600px;padding:10px}
+a{text-decoration:none;}
 h1{text-align:center;color:var(--primary);margin-bottom:10px}
 .subtitle{text-align:center;color:#777;margin-bottom:30px}
 h2{color:var(--primary);margin-top:30px;border-left:4px solid var(--accent);padding-left:10px}
@@ -18,17 +28,38 @@ p{line-height:1.7}
 ul{padding-left:20px}
 li{margin-bottom:8px}
 .highlight{background:#eef6ff;padding:15px;border-left:4px solid var(--accent);border-radius:6px}
-.contact{background:#fafafa;padding:15px;border-radius:8px;margin-top:20px}
+.contact{background:#fafafa;padding:15px;border-radius:8px;margin-top:20px;margin-bottom:20px}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-</style></head><body><div class="article"><div class="btn-home">
+.footer{ margin-top:20px; margin-bottom:20px; text-align:center; border-top:1px solid #e5e7eb; font-size:12px; color:#1f2937; padding:10px;}
+/* RESPONSIVE */
+@media (max-width:500px){
+.gridWrap{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<!-- CONTAINER -->
+<div class="container"><!--container start -->
+<!-- HEADER -->
+<header id="header"><!--header start --> 
+<div class="headerName">
+<div class="headerTitle">Yadin XD</div>
+<div class="headerDesc">A lazy guy with big dreams</div>
+</div> 
+<div class="social">
+<a href="https:// bangyete17.github.io">GitHub</a>
+<a href="https://www.youtube.com/@YadinXD" target="_blank">YouTube</a>
+<a href="mailto:bangyete17@gmail.com">Mail</a>
+</div> 
+</header><!--header end -->
+<div class="wrapcontentHTML"><!--contentHTML start --> 
 <a class="btnhome" href="https://bangyete17.github.io/"></a>
-</div>
+<div class="contentHTML"><!--contentHTML start --> 
 
 
 
 
-    
+
 <h1>HRPAY Kalkulator HRD</h1>
 <p class="subtitle">Kebijakan Privasi</p>
 <p>
@@ -93,6 +124,10 @@ UU Ketenagakerjaan, PP No. 35 Tahun 2021, BPJS, dan PPh 21.
 
 
 <div class="contact">📧 Kontak: <a href="mailto:bangyete17@gmail.com">Yadin XD</a><br></div>
-<div class="btn-home">
-<a class="btnhome" href="https://bangyete17.github.io/"></a>
-</div></div></body></html>
+<div class="btn-home"><a class="btnhome" href="https://bangyete17.github.io/"></a></div>
+</div><!--contentHTML end --> 
+</div><!--wrapcontentHTML end -->   
+<div class="footer">© Yadin XD — A lazy guy with big dreams</div>
+</div><!--container end -->
+</body>
+</html>
