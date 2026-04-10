@@ -2,287 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Developer Portfolio</title>
+<title>Developer Portfolio Yadin XD</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-/* ======================
-   RESET + THEME KALem
-====================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
 
-body {
-  background: #f5f7fb;
-  color: #1f2937;
-  display: flex;
-  justify-content: center;
+body{
+  background:#f5f7fb;
+  color:#1f2937;
+  display:flex;
+  justify-content:center;
 }
 
-.container {
-  width: 100%;
-  max-width: 600px; /* batas lebar */
-  padding: 0 16px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+.container{
+  width:100%;
+  max-width:600px;
+  padding:0 16px;
 }
 
-/* ======================
-   HEADER
-====================== */
-header {
-  padding: 20px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
+header{
+  padding:20px;
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  margin-bottom:12px;
 }
 
-.info1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+.headerName{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
-.info1 h2 {
-  font-size: 20px;
+.headerName h2{
+  font-size:20px;
 }
 
-/* SOCIAL LINK */
+.social{
+  margin-top:10px;
+  padding:8px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  flex-wrap:wrap;
+}
+
+.social a{
+  text-decoration:none;
+  color:#2563eb;
+  font-size:12px;
+  padding:4px 6px;
+}
   
- .social {
-  padding: 5px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-}   
-    
-.social a {
-  margin-left: 10px;
-  text-decoration: none;
-  color: #2563eb;
-  font-size: 14px;
+.social a:hover{
+  text-decoration:underline;
+}
+  
+.headerDesc{
+  margin-top:5px;
+  font-size:12px;
+  color:#6b7280;
 }
 
-.social a:hover {
-  text-decoration: underline;
+.gridWrap{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:10px;
 }
 
-.info2 {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #6b7280;
+.gridContent{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  padding:14px;
+  transition:0.2s;
 }
 
-/* ======================
-   GRID
-====================== */
-#gridApp {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  padding: 20px;
+.gridContent:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
-.app-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 10px;
-  transition: 0.2s;
+.titleApp{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:6px;
+  text-align:center;
+  word-break:break-word;
 }
 
-.app-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+.descApp{
+  font-size:12px;
+  color:#6b7280;
+  margin-bottom:12px;
+  text-align:center;
+  word-break:break-word;
 }
 
-.app-card h4 {
-  font-size: 15px;
-  margin-bottom: 5px;
+.buttonGrid{
+  display:flex;
+  gap:8px;
 }
 
-.app-card p {
-  font-size: 12px;
-  color: #6b7280;
-  margin-bottom: 10px;
+.buttonPlaystore,
+.buttonAboutApp{
+  flex:1;
+  padding:8px;
+  font-size:12px;
+  border-radius:10px;
+  text-align:center;
+  cursor:pointer;
+  user-select:none;
+  transition:0.2s;
 }
 
-/* BUTTON */
-.btn-group {
-  display: flex;
-  gap: 8px;
+.buttonPlaystore{
+  background:#22c55e;
+  color:#fff;
 }
 
-.btn {
-  flex: 1;
-  padding: 6px 8px;
-  font-size: 12px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
+.buttonAboutApp{
+  background:#3b82f6;
+  color:#fff;
 }
 
-.btn-play {
-  background: #22c55e;
-  color: white;
+.buttonPlaystore:hover,
+.buttonAboutApp:hover{
+  opacity:0.85;
+  transform:scale(1.02);
 }
+  
+a{text-decoration:none;}
 
-.btn-html {
-  background: #3b82f6;
-  color: white;
+.footer{
+  margin-top:20px;
+  margin-bottom:20px;
+  text-align:center;
+  border-top:1px solid #e5e7eb;
+  font-size:12px;
+  color:#1f2937;
+  padding:10px;
 }
+ 
+/* RESPONSIVE */
+@media (max-width:500px){
+.gridWrap{grid-template-columns:1fr;}}
 
-/* ======================
-   TOPBAR
-====================== */
-#topbar {
-  display: none;
-  position: sticky;
-  top: 0;
-  background: #ffffff;
-  padding: 12px;
-  border-bottom: 1px solid #e5e7eb;
-  align-items: center;
-  gap: 10px;
-    border: 1px solid #e5e7eb;
-  border-radius: 10px;
-}
-
-#topbar button {
-  background: #e5e7eb;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/* CONTENT */
-#contentHtml {
-  display: none;
-  padding: 10px;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-}
-
-.hide {
-  display: none !important;
-}
 </style>
 </head>
 <body>
-<div class="container">
+<!-- CONTAINER -->
+<div class="container"><!--container start -->
 <!-- HEADER -->
-<header id="header">
-<div class="info1">
+<header id="header"><!--header start -->
+  
+<div class="headerName">
 <h2>Yadin XD</h2>
+<div class="headerDesc">A lazy guy with big dreams</div>
+</div>
+  
 <div class="social">
-<a href=" " >Gmail</a>
-<a href=" " >YouTube</a>
-<a href=" " >GitHub</a>
+<a href="https:// bangyete17.github.io">GitHub</a>
+<a href="https://www.youtube.com/@YadinXD" target="_blank">YouTube</a>
+<a href="mailto:bangyete17@gmail.com">Mail</a>
 </div>
-</div>
-<div class="info2">Developer Portfolio & Tools Collection</div>
-</header>
-<!-- GRID -->
-<main id="gridApp"></main>
-<!-- TOPBAR -->
-<div id="topbar">
-<button onclick="closeViewer()">← Back</button>
-<h3 id="judulContentHtml"></h3>
-</div>
-<!-- CONTENT -->
-<div id="contentHtml"></div>
- </div>
-<script>
-/* ======================
-   DATA APPS
-====================== */
-const apps = [
-  {
-    title: "name app 4",
-    desc: "deskripsi aplikasi",
-    playstore: "",
-    html: ""
-  },
-  {
-    title: "name app 3",
-    desc: "deskripsi aplikasi",
-    playstore: "",
-    html: ""
-  },
-  {
-    title: "name app 2",
-    desc: "deskripsi aplikasi",
-    playstore: "",
-    html: ""
-  },
-  {
-    title: "HRPAY - Kalkulator HRD",
-    desc: "Kalkulator Payroll & Severance",
-    playstore: "https://play.google.com/store/apps/details?id=com.yadinxd.hrpay_hrdpaymenttool",
-    html: "Kebijakan-Privasi-HRPAY.html"
-  }
-];
+  
+</header><!--header end -->
 
-/* ======================
-   RENDER GRID
-====================== */
-const grid = document.getElementById("gridApp");
-
-apps.forEach((app) => {
-const div = document.createElement("div");
-div.className = "app-card";
-
-div.innerHTML = `
-<h4>${app.title}</h4>
-<p>${app.desc}</p>
-
-<div class="btn-group">
-${app.playstore ? `
-<button class="btn btn-play" onclick="window.open('${app.playstore}','_blank')">Play Store</button>
-` : ""}
-
-${app.html ? `
-<button class="btn btn-html" onclick="openHtml('${app.title}','${app.html}')">Open</button>
-` : ""}
-</div>
-  `;
-
-grid.appendChild(div);
-});
-
-/* ======================
-   OPEN HTML VIEW
-====================== */
-function openHtml(title, file) {
-document.getElementById("header").classList.add("hide");
-document.getElementById("gridApp").classList.add("hide");
-
-document.getElementById("topbar").style.display = "flex";
-document.getElementById("contentHtml").style.display = "block";
-
-document.getElementById("judulContentHtml").innerText = title;
-
-document.getElementById("contentHtml").innerHTML =
-`<iframe src="${file}" style="width:100%;height:80vh;border:none;"></iframe>`;
-}
-/* ======================
-   CLOSE
-====================== */
-function closeViewer() {
-document.getElementById("header").classList.remove("hide");
-document.getElementById("gridApp").classList.remove("hide");
-
-document.getElementById("topbar").style.display = "none";
-document.getElementById("contentHtml").style.display = "none";
-}
-</script>
+<!-- GRID & CONTENT -->
+<div class="gridWrap"><!--gridWrap start -->
+  
+<div class="gridContent"><!--gridContent start -->
+<div class="titleApp">nama aplikasi</div>
+<div class="descApp">tentang aplikasi</div>
+<div class="buttonGrid"><!--buttonGrid start -->
+<div class="buttonPlaystore">Download</div>
+<div class="buttonAboutApp">About App</div> 
+</div><!--buttonGrid end -->
+</div><!--gridContent end -->
+  
+<div class="gridContent"><!--gridContent start -->
+<div class="titleApp">HRPAY Kalkulator HRD</div>
+<div class="descApp">Kalkulator Payroll dan Severance</div>
+<div class="buttonGrid"><!--buttonGrid start -->
+<a class="buttonPlaystore" href="https://play.google.com/store/apps/details?id=com.yadinxd.hrpay_hrdpaymenttool" target="_blank">Download</a>
+<a class="buttonAboutApp" href="https:// bangyete17.github.io/Kebijakan-Privasi-HRPAY">About App</a>
+</div><!--buttonGrid end -->
+</div><!--gridContent end -->
+  
+</div><!--gridWrap end --> 
+<div class="footer">© Yadin XD — A lazy guy with big dreams</div>
+</div><!--container end -->
 </body>
 </html>
