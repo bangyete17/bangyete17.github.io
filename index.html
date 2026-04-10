@@ -1,155 +1,288 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Developer Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Developer Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #f4f6f9;
-      color: #333;
-    }
+<style>
+/* ======================
+   RESET + THEME KALem
+====================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
+body {
+  background: #f5f7fb;
+  color: #1f2937;
+  display: flex;
+  justify-content: center;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+.container {
+  width: 100%;
+  max-width: 600px; /* batas lebar */
+  padding: 0 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
 
-    header p {
-      margin-top: 10px;
-      color: #ccc;
-    }
+/* ======================
+   HEADER
+====================== */
+header {
+  padding: 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+.info1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
-    }
+.info1 h2 {
+  font-size: 20px;
+}
 
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: 0.3s;
-    }
+/* SOCIAL LINK */
+  
+ .social {
+  padding: 5px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}   
+    
+.social a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #2563eb;
+  font-size: 14px;
+}
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
+.social a:hover {
+  text-decoration: underline;
+}
 
-    .card img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      background: #ddd;
-    }
+.info2 {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
 
-    .card-content {
-      padding: 15px;
-    }
+/* ======================
+   GRID
+====================== */
+#gridApp {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
 
-    .card-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
+.app-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.2s;
+}
 
-    /* 🔥 BAGIAN PERBAIKAN */
-    .card-buttons {
-      display: flex;
-      justify-content: space-between; /* kiri kanan rata */
-      gap: 10px;
-    }
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
 
-    .card-buttons a {
-      flex: 1; /* biar sama lebar */
-      text-align: center;
-      padding: 10px;
-      background: #3498db;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-    }
+.app-card h4 {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
 
-    .card-buttons a:last-child {
-      background: #2ecc71; /* beda warna biar keren */
-    }
+.app-card p {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
 
-    .card-buttons a:hover {
-      opacity: 0.9;
-    }
+/* BUTTON */
+.btn-group {
+  display: flex;
+  gap: 8px;
+}
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #888;
-      font-size: 14px;
-    }
-  </style>
+.btn {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-play {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-html {
+  background: #3b82f6;
+  color: white;
+}
+
+/* ======================
+   TOPBAR
+====================== */
+#topbar {
+  display: none;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+  align-items: center;
+  gap: 10px;
+    border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+#topbar button {
+  background: #e5e7eb;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+#contentHtml {
+  display: none;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.hide {
+  display: none !important;
+}
+</style>
 </head>
-
 <body>
-
-<header>
-  <h1>Yadin XD Studio</h1>
-  <p>Developer Portfolio & Tools Collection</p>
-</header>
-
 <div class="container">
-  <div class="grid">
-
-    <!-- APP 1 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200">
-      <div class="card-content">
-        <div class="card-title">HRPAY - Kalkulator HRD</div>
-
-        <div class="card-buttons">
-          <a href="https://play.google.com/store/apps/details?id=com.yadinxd.hrpay_hrdpaymenttool">Aplikasi</a>
-          <a href="https://bangyete17.github.io/Kebijakan-Privasi-HRPAY.html">Privasi</a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- APP 2 -->
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200">
-      <div class="card-content">
-        <div class="card-title">Nama Aplikasi 2</div>
-
-        <div class="card-buttons">
-          <a href="#">Aplikasi</a>
-          <a href="#">Privasi</a>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
+<!-- HEADER -->
+<header id="header">
+<div class="info1">
+<h2>Yadin XD</h2>
+<div class="social">
+<a href=" " >Gmail</a>
+<a href=" " >YouTube</a>
+<a href=" " >GitHub</a>
 </div>
+</div>
+<div class="info2">Developer Portfolio & Tools Collection</div>
+</header>
+<!-- GRID -->
+<main id="gridApp"></main>
+<!-- TOPBAR -->
+<div id="topbar">
+<button onclick="closeViewer()">← Back</button>
+<h3 id="judulContentHtml"></h3>
+</div>
+<!-- CONTENT -->
+<div id="contentHtml"></div>
+ </div>
+<script>
+/* ======================
+   DATA APPS
+====================== */
+const apps = [
+  {
+    title: "name app 4",
+    desc: "deskripsi aplikasi",
+    playstore: "",
+    html: ""
+  },
+  {
+    title: "name app 3",
+    desc: "deskripsi aplikasi",
+    playstore: "",
+    html: ""
+  },
+  {
+    title: "name app 2",
+    desc: "deskripsi aplikasi",
+    playstore: "",
+    html: ""
+  },
+  {
+    title: "HRPAY - Kalkulator HRD",
+    desc: "Kalkulator Payroll & Severance",
+    playstore: "https://play.google.com/store/apps/details?id=com.yadinxd.hrpay_hrdpaymenttool",
+    html: "Kebijakan-Privasi-HRPAY.html"
+  }
+];
 
-<footer>
- Yadin XD | All Rights Reserved
-</footer>
+/* ======================
+   RENDER GRID
+====================== */
+const grid = document.getElementById("gridApp");
 
+apps.forEach((app) => {
+const div = document.createElement("div");
+div.className = "app-card";
+
+div.innerHTML = `
+<h4>${app.title}</h4>
+<p>${app.desc}</p>
+
+<div class="btn-group">
+${app.playstore ? `
+<button class="btn btn-play" onclick="window.open('${app.playstore}','_blank')">Play Store</button>
+` : ""}
+
+${app.html ? `
+<button class="btn btn-html" onclick="openHtml('${app.title}','${app.html}')">Open</button>
+` : ""}
+</div>
+  `;
+
+grid.appendChild(div);
+});
+
+/* ======================
+   OPEN HTML VIEW
+====================== */
+function openHtml(title, file) {
+document.getElementById("header").classList.add("hide");
+document.getElementById("gridApp").classList.add("hide");
+
+document.getElementById("topbar").style.display = "flex";
+document.getElementById("contentHtml").style.display = "block";
+
+document.getElementById("judulContentHtml").innerText = title;
+
+document.getElementById("contentHtml").innerHTML =
+`<iframe src="${file}" style="width:100%;height:80vh;border:none;"></iframe>`;
+}
+/* ======================
+   CLOSE
+====================== */
+function closeViewer() {
+document.getElementById("header").classList.remove("hide");
+document.getElementById("gridApp").classList.remove("hide");
+
+document.getElementById("topbar").style.display = "none";
+document.getElementById("contentHtml").style.display = "none";
+}
+</script>
 </body>
 </html>
