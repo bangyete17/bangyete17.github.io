@@ -893,9 +893,8 @@ let words = keyword.split(" ");
 return words.every(w => text.includes(w));
 }
 searchInput.addEventListener("input", () => {
-render(currentList);
+  render();
 });
-
 /* =========================
    KATEGORI
 ========================= */
@@ -935,25 +934,31 @@ behavior:"smooth"});
    RENDER GRID
 ========================= */
 function render(data = null){
-let keyword = searchInput.value.toLowerCase().trim();
-let source =
-(currentCategory === "all")
- ? (data || currentList)
- : DATA_RESEP;
-let filtered = source.filter(r => {
-let matchKategori =
-currentCategory === "all" ||
-r.category.includes(currentCategory);
-if(keyword === "") return matchKategori;
-let target = (r.title + " " + r.category.join(" ")).toLowerCase();
-return matchKategori && matchText(target, keyword);
-});
-grid.innerHTML = filtered.map(createCard).join("");
-  
-renderRekomendasi();
-refreshAllFavIcons();
-document.getElementById("btnNext").style.display =
-(currentCategory==="all" && keyword==="") ? "inline-block":"none";
+  let keyword = searchInput.value.toLowerCase().trim();
+
+  // 🔥 kalau ada search → pakai SEMUA data
+  let source = keyword !== "" ? DATA_RESEP :
+               (currentCategory === "all" ? (data || currentList) : DATA_RESEP);
+
+  let filtered = source.filter(r => {
+    let matchKategori =
+      currentCategory === "all" ||
+      r.category.includes(currentCategory);
+
+    if(keyword === "") return matchKategori;
+
+    let target = (r.title + " " + r.category.join(" ")).toLowerCase();
+
+    return matchKategori && matchText(target, keyword);
+  });
+
+  grid.innerHTML = filtered.map(createCard).join("");
+
+  renderRekomendasi();
+  refreshAllFavIcons();
+
+  document.getElementById("btnNext").style.display =
+    (keyword === "" && currentCategory==="all") ? "inline-block":"none";
 }
 
 /* =========================
